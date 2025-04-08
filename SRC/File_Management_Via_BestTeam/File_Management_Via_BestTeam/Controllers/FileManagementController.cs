@@ -32,11 +32,13 @@ namespace File_Management_Via_BestTeam.Controllers
         [HttpPost("uploadFileAsync")]
         public async Task<IActionResult> UploadFileAsync(string filePath, IFormFile file)
         {
+            var fileType = file.ContentType;
+            var fullPath = Path.Combine(filePath, fileType);
             try
             {
                 using (var stream = file.OpenReadStream())
                 {
-                    await _storageService.UploadFileAsync(filePath, stream);
+                    await _storageService.UploadFileAsync(fullPath, stream);
                 }
                 return Ok("File uploaded successfully.");
             }
