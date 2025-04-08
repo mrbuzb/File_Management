@@ -1,0 +1,6 @@
+@File_Management_Via_BestTeam_HostAddress = http://localhost:5276
+
+GET {{File_Management_Via_BestTeam_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
