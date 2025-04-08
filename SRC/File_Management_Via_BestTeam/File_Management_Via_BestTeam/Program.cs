@@ -14,6 +14,11 @@ namespace File_Management_Via_BestTeam
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+
+            builder.Services.AddScoped<IStorageService, LocalStorageService>();
+            builder.Services.AddScoped<IFileManagementService, FileManagementServicee>();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
