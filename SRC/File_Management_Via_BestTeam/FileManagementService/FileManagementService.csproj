@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\File_Management_Service\File_Management_BrokerService.csproj" />
+    <ProjectReference Include="..\File_Management_Service\File_Management_Broker_Service.csproj" />
   </ItemGroup>
 
 </Project>

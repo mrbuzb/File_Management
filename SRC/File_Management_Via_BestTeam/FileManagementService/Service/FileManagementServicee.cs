@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FileManagementService.Service;
 
-public class FileManagementService : IFileManagementService
+public class FileManagementServicee : IFileManagementService
 {
     public Task CreateFolderAsync(string folderPath)
     {
