@@ -61,6 +61,33 @@ namespace File_Management_Via_BestTeam.Controllers
                 return BadRequest($"Error downloading folder as zip: {ex.Message}");
             }
         }
+        [HttpDelete("deleteFolderAsync")]
+        public async Task DeleteFolderAsync(string folderPath)
+        {
+            await _storageService.DeleteFolderAsync(folderPath);
+        }
+
+        [HttpDelete("deleteFileAsync")]
+        public async Task DeleteFileAsync(string filePath)
+        {
+            await _storageService.DeleteFileAsync(filePath);
+        }
+
+        [HttpGet("downloadFileAsync")]
+        public async Task<FileStreamResult> DownloadFileAsync(string fileName)
+        {
+            if (string.IsNullOrEmpty(fileName))
+            {
+                throw new Exception("ERROR");
+            }
+            var name = Path.GetFileName(fileName);
+            var stream = await _storageService.DownloadFileAsync(fileName);
+            return new FileStreamResult(stream, "application/octet-stream")
+            {
+                FileDownloadName = name,
+            };
+
+        }
 
 
     }
