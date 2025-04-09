@@ -11,6 +11,7 @@ public class FileManagementServicee : IFileManagementService
     public Task CreateFolderAsync(string folderPath)
     {
         throw new NotImplementedException();
+        //salom
     }
 
     public Task DeleteFileAsync(string filePath)
