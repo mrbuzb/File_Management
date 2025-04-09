@@ -1,4 +1,5 @@
-﻿using System;
+﻿using File_Management_Service.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,38 +9,44 @@ namespace FileManagementService.Service;
 
 public class FileManagementServicee : IFileManagementService
 {
-    public Task CreateFolderAsync(string folderPath)
+    private IStorageService _storageService;
+    public FileManagementServicee(IStorageService storageService)
     {
-        throw new NotImplementedException();
+        _storageService = storageService;
+    }
+    public async Task CreateFolderAsync(string folderPath)
+    {
+        await _storageService.CreateFolderAsync(folderPath);
     }
 
-    public Task DeleteFileAsync(string filePath)
+    public async Task DeleteFileAsync(string filePath)
     {
-        throw new NotImplementedException();
+       await _storageService.DeleteFileAsync(filePath);
     }
 
-    public Task DeleteFolderAsync(string folderPath)
+    public async Task DeleteFolderAsync(string folderPath)
     {
-        throw new NotImplementedException();
+        await _storageService.DeleteFolderAsync(folderPath);
     }
 
-    public Task<Stream> DownloadFileAsync(string filePath)
+    public async Task<Stream> DownloadFileAsync(string filePath)
     {
-        throw new NotImplementedException();
+      return await _storageService.DownloadFileAsync(filePath);
+    
     }
 
-    public Task<Stream> DownloadFolderAsZipAsync(string folderPath)
+    public async Task<Stream> DownloadFolderAsZipAsync(string folderPath)
     {
-        throw new NotImplementedException();
+       return await _storageService.DownloadFolderAsZipAsync(folderPath);
     }
 
     public Task<List<string>> GetFoldersAndFilesAsync(string path)
     {
-        throw new NotImplementedException();
+        return _storageService.GetFoldersAndFilesAsync(path);
     }
 
-    public Task UploadFileAsync(string filePath, Stream strem)
+    public async Task UploadFileAsync(string filePath, Stream strem)
     {
-        throw new NotImplementedException();
+      await  _storageService.UploadFileAsync(filePath, strem);
     }
 }
