@@ -49,7 +49,7 @@ public class LocalStorageService : IStorageService
             throw new Exception("There is no any folder to delete");
         }
 
-        Directory.Delete(_directoryPath);
+        Directory.Delete(_directoryPath,true);
     }
 
     public async Task<Stream> DownloadFileAsync(string filePath)
@@ -111,10 +111,7 @@ public class LocalStorageService : IStorageService
 
         var parentPath = Directory.GetParent(_filePath);
 
-        if (!Directory.Exists(parentPath.FullName))
-        {
-            throw new Exception("Parent pasth not found in UploadFileAsync");
-        }
+        
 
         using (FileStream fileStream = new FileStream(_filePath, FileMode.Create, FileAccess.Write))
         {
