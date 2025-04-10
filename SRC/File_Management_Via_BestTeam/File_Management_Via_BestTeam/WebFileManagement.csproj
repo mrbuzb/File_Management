@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -12,7 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FileManagementService\FileManagementService.csproj" />
-    <ProjectReference Include="..\File_Management_Service\File_Management_Broker_Service.csproj" />
+    <ProjectReference Include="..\File_Management_Service\FileManagementBrokerService.csproj" />
   </ItemGroup>
 
 </Project>
